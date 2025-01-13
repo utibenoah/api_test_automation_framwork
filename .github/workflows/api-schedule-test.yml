@@ -22,8 +22,7 @@ jobs:
 
 
       - name: Install Mocha globally
-        run: npm install -g mocha
-        
+        run: npm install -g mocha  mochawesome
       # Install dependencies
       - name: Install dependencies
         run: npm install
