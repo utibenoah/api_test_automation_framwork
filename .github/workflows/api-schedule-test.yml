@@ -1,23 +1,29 @@
-name: api schedule automation test
+name: API Schedule Automation Test
 
-on: 
-    push:
-    schedule:
-      - cron: '1 * * * *'
+on:
+  push:
+  schedule:
+    - cron: '1 * * * *'
 
 jobs:
   frequent-test:
     runs-on: ubuntu-latest
 
     steps:
-        # check repository
-      - name: Checkout
+      # Check out the repository
+      - name: Checkout code
         uses: actions/checkout@v4.2.2
 
-        # install node
+      # Set up Node.js environment
       - name: Setup Node.js environment
-        uses: actions/setup-node@v4.1.0
-          
-        # run test
-      - name: run test
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'  # specify your desired version of Node.js
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Run the tests
+      - name: Run API test
         run: npm run apitest
