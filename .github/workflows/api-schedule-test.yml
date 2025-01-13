@@ -40,4 +40,9 @@ jobs:
           name: mochawesome-report
           path: ./mochawesome-report  
 
+ # Optionally, you can display the HTML report as a comment in the workflow run
+      - name: Upload Mochawesome HTML report to GitHub
+        run: |
+          cp mochawesome-report/mochawesome.html $GITHUB_WORKSPACE/mochawesome-report.html
+        if: always()
      
