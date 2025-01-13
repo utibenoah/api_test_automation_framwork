@@ -1,0 +1,119 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-01-13T10:04:01.296Z",
+    "end": "2025-01-13T10:04:03.257Z",
+    "duration": 1961,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5f04c3c5-15d7-4c13-9409-356bed19595e",
+      "title": "",
+      "fullFile": "C:\\Users\\UTIBE\\Desktop\\api-automation\\api_tests\\comment.test.js",
+      "file": "\\api_tests\\comment.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "56f54baf-e45b-47c1-b0b0-a8823b2b20d6",
+          "title": "test_comment",
+          "fullFile": "C:\\Users\\UTIBE\\Desktop\\api-automation\\api_tests\\comment.test.js",
+          "file": "\\api_tests\\comment.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "get all comment",
+              "fullTitle": "test_comment get all comment",
+              "timedOut": false,
+              "duration": 1565,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let response=await api_client().get('/comments')\nassert_status_code(response.status,200)//asserting response",
+              "err": {},
+              "uuid": "94a71564-1668-4603-8f9b-1958e6ab4050",
+              "parentUUID": "56f54baf-e45b-47c1-b0b0-a8823b2b20d6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "get specific comment",
+              "fullTitle": "test_comment get specific comment",
+              "timedOut": false,
+              "duration": 346,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let response=await api_client().get('/comments',{'postId':1, 'email':'Eliseo@gardner.biz'})\nassert_status_code(response.status,200)//assert response code\nassert_json_key(response.data[0], 'email')// assert key\nassert_json_value(response.data[0],'email','Eliseo@gardner.biz')//assert key value\n\n//contract testing\nlet schema={\n    \"type\":\"object\",\n    \"properties\":{\n        \n            \"postId\": {\"type\":\"integer\"},\n            \"id\": {\"type\":\"integer\"},\n            \"name\": {\"type\": \"string\"},\n            \"email\":{\"type\": \"string\"},\n            \"body\": {\"type\": \"string\"},\n          \n    },\n\n    \"required\":[\"postId\",\"id\",\"name\",\"email\",\"body\"]\n}\n\n\nlet schemaValidation =new ContractValidator(schema)\nschemaValidation.validate_schema(response.data[0])",
+              "err": {},
+              "uuid": "341b8f45-3405-4ab2-825b-7166486f4e09",
+              "parentUUID": "56f54baf-e45b-47c1-b0b0-a8823b2b20d6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "94a71564-1668-4603-8f9b-1958e6ab4050",
+            "341b8f45-3405-4ab2-825b-7166486f4e09"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1911,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
