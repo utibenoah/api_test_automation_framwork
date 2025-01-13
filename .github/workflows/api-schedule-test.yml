@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
-          node-version: '16'  # specify your desired version of Node.js
+          node-version: '20'  # specify your desired version of Node.js
 
 
       - name: Install Mocha globally
