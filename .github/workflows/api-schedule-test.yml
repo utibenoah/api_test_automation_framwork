@@ -31,3 +31,13 @@ jobs:
       # Run the tests
       - name: Run API test
         run: npm run apitest
+
+
+        # Upload test report as an artifact
+      - name: Upload Mocha test report
+        uses: actions/upload-artifact@v3
+        with:
+          name: mochawesome-report
+          path: ./mochawesome-report  
+
+     
