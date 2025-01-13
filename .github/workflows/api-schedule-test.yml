@@ -1,6 +1,7 @@
 name: api schedule automation test
 
 on: 
+    push:
     schedule:
       - cron: '1 * * * *'
 
