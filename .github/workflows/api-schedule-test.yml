@@ -2,7 +2,7 @@ name: API Schedule Automation Test
 
 on:
   schedule:
-    - cron: '1 * * * *'
+    - cron: '* 22 * * *'
 
 jobs:
   frequent-test:
