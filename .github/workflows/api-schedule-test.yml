@@ -21,7 +21,7 @@ jobs:
           node-version: '20'  # specify your desired version of Node.js
 
 
-      - name: Install Mocha globally
+      - name: Install Mocha mochawesome dotenv
         run: npm install -g mocha  mochawesome dotenv
         
       # Install dependencies
@@ -35,7 +35,7 @@ jobs:
 
         # Upload test report as an artifact
       - name: Upload Mocha test report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.6.0
         with:
           name: mochawesome-report
           path: ./mochawesome-report  
