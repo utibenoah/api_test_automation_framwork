@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "apitest": "mocha '**/*.test.js' --reporter mochawesome --require mochawesome/register -r dotenv/config"
+    "apitest": "mocha '**/*.test.js' --parallel  --reporter mochawesome --require mochawesome/register -r dotenv/config"
   },
   "author": "",
   "license": "ISC",

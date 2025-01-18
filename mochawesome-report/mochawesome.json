@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-01-13T12:52:34.625Z",
-    "end": "2025-01-13T12:52:36.125Z",
-    "duration": 1500,
+    "start": "2025-01-18T03:40:12.258Z",
+    "end": "2025-01-18T03:40:14.185Z",
+    "duration": 1927,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "e2c365f8-1a0b-4a37-8de9-6cea0eb4c55f",
+      "uuid": "a0e6eb12-dceb-4edf-8672-b84c50f03354",
       "title": "",
       "fullFile": "C:\\Users\\UTIBE\\Desktop\\api_test_automation_framwork\\api_tests\\comment.test.js",
       "file": "\\api_tests\\comment.test.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "ddd89aa7-e154-4a09-b84f-af8a9d174e78",
+          "uuid": "845252d0-49a4-47f6-8313-ffbdf56bab92",
           "title": "test_comment",
           "fullFile": "C:\\Users\\UTIBE\\Desktop\\api_test_automation_framwork\\api_tests\\comment.test.js",
           "file": "\\api_tests\\comment.test.js",
@@ -37,8 +37,8 @@
             {
               "title": "get all comment",
               "fullTitle": "test_comment get all comment",
-              "timedOut": false,
-              "duration": 1219,
+              "timedOut": null,
+              "duration": 721,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,16 +47,16 @@
               "context": null,
               "code": "let response=await api_client().get('/comments')\nassert_status_code(response.status,200)//asserting response",
               "err": {},
-              "uuid": "47b592d6-ac1b-4a88-a49a-25c7bc3cc4ca",
-              "parentUUID": "ddd89aa7-e154-4a09-b84f-af8a9d174e78",
+              "uuid": "afbf789b-9c53-4857-90d7-a49cd46fe935",
+              "parentUUID": null,
               "isHook": false,
               "skipped": false
             },
             {
               "title": "get specific comment",
               "fullTitle": "test_comment get specific comment",
-              "timedOut": false,
-              "duration": 234,
+              "timedOut": null,
+              "duration": 187,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -65,24 +65,24 @@
               "context": null,
               "code": "let response=await api_client().get('/comments',{'postId':1, 'email':'Eliseo@gardner.biz'})\nassert_status_code(response.status,200)//assert response code\nassert_json_key(response.data[0], 'email')// assert key\nassert_json_value(response.data[0],'email','Eliseo@gardner.biz')//assert key value\n\n//contract testing\nlet schema={\n    \"type\":\"object\",\n    \"properties\":{\n        \n            \"postId\": {\"type\":\"integer\"},\n            \"id\": {\"type\":\"integer\"},\n            \"name\": {\"type\": \"string\"},\n            \"email\":{\"type\": \"string\"},\n            \"body\": {\"type\": \"string\"},\n          \n    },\n\n    \"required\":[\"postId\",\"id\",\"name\",\"email\",\"body\"]\n}\n\n\nlet schemaValidation =new ContractValidator(schema)\nschemaValidation.validate_schema(response.data[0])",
               "err": {},
-              "uuid": "1d1cc56a-e986-4814-b2c8-325271858eb8",
-              "parentUUID": "ddd89aa7-e154-4a09-b84f-af8a9d174e78",
+              "uuid": "df52bebb-d227-4162-8eb2-a33e454ae2d1",
+              "parentUUID": null,
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "47b592d6-ac1b-4a88-a49a-25c7bc3cc4ca",
-            "1d1cc56a-e986-4814-b2c8-325271858eb8"
+            "afbf789b-9c53-4857-90d7-a49cd46fe935",
+            "df52bebb-d227-4162-8eb2-a33e454ae2d1"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1453,
+          "duration": 908,
           "root": false,
           "rootEmpty": false,
-          "_timeout": 2000
+          "_timeout": null
         }
       ],
       "passes": [],
