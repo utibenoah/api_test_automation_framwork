@@ -1,0 +1,10 @@
+{
+    "require": [
+    "mochawesome/register",
+    "dotenv/config"
+  ],
+  "reporter": "mochawesome",
+  "spec": "**/*.test.js",
+  "timeout":6000,
+  "parallel": true
+}

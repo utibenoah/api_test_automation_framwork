@@ -1,5 +1,7 @@
 import { config } from "dotenv"
 
+//config()
+
 //require("dotenv").config()
 
 let Config={

@@ -1,4 +1,6 @@
 import axios from 'axios'
+import logger from '../utils/loggerUtils.cjs'
+
 
 class APIClient {
     constructor(base_Url, headers=null) {
@@ -9,10 +11,15 @@ class APIClient {
 // get resource from endpoint
       get= async(endpoint,params=null)=>{
         let url=`${this.base_Url}${endpoint}`
-        let response=await axios.get(url,{params:params},{headers:this.headers})
+        try {
+            let response=await axios.get(url,{params:params},{headers:this.headers})
 
         
-        return response
+            return response
+        } catch (error) {
+            logger.error(`Server fail to response--> ${error}`)
+        }
+        
          
     }
 

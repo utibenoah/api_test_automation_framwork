@@ -1,8 +1,10 @@
 import { expect } from "chai";
+import logger from "../utils/loggerUtils.cjs";
 
 export const assert_status_code=(response_code, expected_code)=>{
     //assert response status code from api
     expect(response_code).to.be.equal(expected_code)
+
 }
 
 

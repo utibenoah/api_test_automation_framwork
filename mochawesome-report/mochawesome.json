@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-01-18T03:40:12.258Z",
-    "end": "2025-01-18T03:40:14.185Z",
-    "duration": 1927,
+    "start": "2025-03-17T15:25:13.642Z",
+    "end": "2025-03-17T15:25:16.514Z",
+    "duration": 2872,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "a0e6eb12-dceb-4edf-8672-b84c50f03354",
+      "uuid": "a5665ee5-ec1d-443e-8bf8-340c4ea3f4cf",
       "title": "",
       "fullFile": "C:\\Users\\UTIBE\\Desktop\\api_test_automation_framwork\\api_tests\\comment.test.js",
       "file": "\\api_tests\\comment.test.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "845252d0-49a4-47f6-8313-ffbdf56bab92",
+          "uuid": "a36ab2eb-312a-4eee-a3a5-33ee84adb220",
           "title": "test_comment",
           "fullFile": "C:\\Users\\UTIBE\\Desktop\\api_test_automation_framwork\\api_tests\\comment.test.js",
           "file": "\\api_tests\\comment.test.js",
@@ -38,16 +38,16 @@
               "title": "get all comment",
               "fullTitle": "test_comment get all comment",
               "timedOut": null,
-              "duration": 721,
+              "duration": 977,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "let response=await api_client().get('/comments')\nassert_status_code(response.status,200)//asserting response",
+              "code": "logger.info('Get all comment: /comment')\nlet response=await api_client().get('/comments')\n\n\nlogger.info('asserting status code')\nassert_status_code(response.status,200)//asserting response\nlogger.info('Test complete')",
               "err": {},
-              "uuid": "afbf789b-9c53-4857-90d7-a49cd46fe935",
+              "uuid": "9eb3fafa-4f20-4189-b32a-395dcb0003ae",
               "parentUUID": null,
               "isHook": false,
               "skipped": false
@@ -56,16 +56,16 @@
               "title": "get specific comment",
               "fullTitle": "test_comment get specific comment",
               "timedOut": null,
-              "duration": 187,
+              "duration": 377,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "let response=await api_client().get('/comments',{'postId':1, 'email':'Eliseo@gardner.biz'})\nassert_status_code(response.status,200)//assert response code\nassert_json_key(response.data[0], 'email')// assert key\nassert_json_value(response.data[0],'email','Eliseo@gardner.biz')//assert key value\n\n//contract testing\nlet schema={\n    \"type\":\"object\",\n    \"properties\":{\n        \n            \"postId\": {\"type\":\"integer\"},\n            \"id\": {\"type\":\"integer\"},\n            \"name\": {\"type\": \"string\"},\n            \"email\":{\"type\": \"string\"},\n            \"body\": {\"type\": \"string\"},\n          \n    },\n\n    \"required\":[\"postId\",\"id\",\"name\",\"email\",\"body\"]\n}\n\n\nlet schemaValidation =new ContractValidator(schema)\nschemaValidation.validate_schema(response.data[0])",
+              "code": "logger.info('Get comment by query')\nlet response=await api_client().get('/comments',{'postId':1, 'email':'Eliseo@gardner.biz'})\nassert_status_code(response.status,200)//assert response code\nassert_json_key(response.data[0], 'email')// assert key\nassert_json_value(response.data[0],'email','Eliseo@gardner.biz')//assert key value\n\n//contract testing\nlet schema={\n    \"type\":\"object\",\n    \"properties\":{\n        \n            \"postId\": {\"type\":\"integer\"},\n            \"id\": {\"type\":\"integer\"},\n            \"name\": {\"type\": \"string\"},\n            \"email\":{\"type\": \"string\"},\n            \"body\": {\"type\": \"string\"},\n          \n    },\n\n    \"required\":[\"postId\",\"id\",\"name\",\"email\",\"body\"]\n}\n\n\nlet schemaValidation =new ContractValidator(schema)\nschemaValidation.validate_schema(response.data[0])",
               "err": {},
-              "uuid": "df52bebb-d227-4162-8eb2-a33e454ae2d1",
+              "uuid": "1b81a46c-5bf1-42aa-8995-cc978d1beb97",
               "parentUUID": null,
               "isHook": false,
               "skipped": false
@@ -73,13 +73,13 @@
           ],
           "suites": [],
           "passes": [
-            "afbf789b-9c53-4857-90d7-a49cd46fe935",
-            "df52bebb-d227-4162-8eb2-a33e454ae2d1"
+            "9eb3fafa-4f20-4189-b32a-395dcb0003ae",
+            "1b81a46c-5bf1-42aa-8995-cc978d1beb97"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 908,
+          "duration": 1354,
           "root": false,
           "rootEmpty": false,
           "_timeout": null
@@ -92,7 +92,7 @@
       "duration": 0,
       "root": true,
       "rootEmpty": true,
-      "_timeout": 2000
+      "_timeout": 6000
     }
   ],
   "meta": {
