@@ -1,6 +1,8 @@
 name: API Schedule Automation Test
 
-on: repository_dispatch
+on:
+  schedule:
+    - cron: '* * 1 * *'
  
 
 jobs:
