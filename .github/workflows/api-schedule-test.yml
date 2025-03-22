@@ -1,8 +1,7 @@
 name: API Schedule Automation Test
 
-on:
-  schedule:
-    - cron: '* 22 * * *'
+on: repository_dispatch
+ 
 
 jobs:
   frequent-test:
@@ -29,7 +28,7 @@ jobs:
 
       # Run the tests
       - name: Run API test
-        run: npm run apitest
+        run: npm test
 
 
         # Upload test report as an artifact
