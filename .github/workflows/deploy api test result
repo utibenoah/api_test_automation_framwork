@@ -1,0 +1,7 @@
+name: deploy api test result
+
+on:
+  workflow_run:
+    workflows: ["Deploy Test Artifact"]  # Ensure this matches the workflow you uploaded the artifact in
+    types:
+      - completed
