@@ -1,7 +1,41 @@
 name: deploy api test result
 
 on:
-  workflow_run:
-    workflows: ["Deploy Test Artifact"]  # Ensure this matches the workflow you uploaded the artifact in
-    types:
-      - completed
+ 
+  workflow_dispatch:
+  
+  # workflow_run:
+    # workflows: ["Deploy Test Artifact"]  # Ensure this matches the workflow you uploaded the artifact in
+    # types:
+      # - completed
+jobs:
+  upload-api-testreport:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v4.2.1
+        with:
+          name: mochawesome-report
+          path: ./mochawesome-report
+
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: api_test_report-page
+          folder: mochawesome-report 
